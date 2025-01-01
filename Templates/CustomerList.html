@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <title>{{ title }}</title>
+    </head>
+    <body>
+        {% if not data %}
+            <h1>No customers are found.</h1> 
+        {% else %}
+            {% for customer in data %}
+                <h1>
+                    <a href="/customer/{{ customer['CUSTOMERID'] }}">{{ customer['NAME'] }}</a> - 
+                    {{ customer['EMAIL'] }}, {{ customer['BILLINGADDRESS'] }}, {{ customer['PAYMENTINFORMATION'] }}
+                </h1>
+            {% endfor %}zo
+        {% endif %}
+        <form action="/create" method="get">
+            <input type="submit" value="Create">
+        </form>
+    </body>
+</html>
